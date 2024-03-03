@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
@@ -28,7 +28,23 @@ def addproduct():
     if request.method == 'GET':
         return render_template ("addproduct.html")  
     else:
-        return f"confirmed {request.form['name']}"  
+        name = request.form['name']
+        price = request.form['price']
+        description = request.form['description']
+        imageName = request.form['imageName']
+        product = Product(name = name, price = price, description = description, imageName = imageName)
+        db.session.add(product)
+        db.session.commit()
+        return redirect("/") 
+    
+@app.route("/product/<int:id>/delete")
+def deleteproduct(id):
+    product = Product.query.get(id)
+    db.session.delete(product)
+    db.session.commit()
+    return redirect("/")
+
+
     
 @app.route("/about")
 def about():
