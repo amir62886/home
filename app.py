@@ -40,9 +40,24 @@ def addproduct():
 @app.route("/product/<int:id>/delete")
 def deleteproduct(id):
     product = Product.query.get(id)
-    db.session.delete(product)
-    db.session.commit()
-    return redirect("/")
+    if product:
+        db.session.delete(product)
+        db.session.commit()
+        return redirect("/")
+    return 'Не удалось найти продукт'
+
+@app.route("/product/<int:id>/update", methods=['GET', 'POST'])
+def updateproduct(id):
+    product = Product.query.get(id)
+    if product:
+        if request.method == 'GET':
+            return render_template('updateproduct.html', product = product)
+        product.name = request.form['name']
+        product.price = request.form['price']
+        product.description = request.form['description']
+        product.imageName = request.form['imageName']
+        db.session.commit()
+        return redirect(f"/product/{id}")
 
 
     
