@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/homePage.css">
     <title>Document</title>
 </head>
 <body>
@@ -10,7 +11,8 @@
     <img src="/static/img/{{product.imageName}}" style="width: 200px; display: block;">
         <h4>{{product.name}}</h4>
         <p>{{product.price}}</p>
-        <a href="/product/{{product.Id}}">подробнее</a>
+        <a href="/product/{{product.id}}"><button>Подробнее</button></a>
     {% endfor %}
+    
 </body>
 </html>

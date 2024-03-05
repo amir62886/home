@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,28 +7,29 @@
     <title>Product Form</title>
 </head>
 <body>
-    <h1>Add product page</h1>
+    <h1>Update product page</h1>
     <form method="post">
         <div>
             <label for="name">Name</label>
-            <input type="text" id="name" name="name" required>
+            <input type="text" id="name" name="name" required value="{{product.name}}">
         </div>
         
         <div>
             <label for="price">Price</label>
-            <input type="number" id="price" name="price" required>
+            <input type="number" id="price" name="price" required value="{{product.price}}">
         </div>
 
         <div>
             <label for="description">Description</label>
-            <input type="text" id="description" name="description">
+            <input type="text" id="description" name="description" value="{{product.description}}">
         </div>
         
         <div>
              <label for="imageName">Image Name</label>
-             <input type="text" id="imageName" name="imageName">
+             <input type="text" id="imageName" name="imageName" value="{{product.imageName}}">
         </div>
         <input type="submit" value="Submit">
     </form>
+    <a href="/product/{{product.id}}"><button>Comeback</button></a>
 </body>
 </html>

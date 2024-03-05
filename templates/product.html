@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/product.css">
     <title>Document</title>
 </head>
 <body>
@@ -10,6 +11,7 @@
     <p>{{product.price}}</p>
     <p>{{product.description}}</p>
     <img src="/static/img/{{product.imageName}}" style="width: 200px; display: block;">
-    <a href="/product/{{product.id}}/delete">Удалить</a>
+    <a href="/product/{{product.id}}/delete"><button>Удалить</button></a>
+    <a href="/product/{{product.id}}/update"><button>Обновить продукт</button></a>
 </body>
 </html>
